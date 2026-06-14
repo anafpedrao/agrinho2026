@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIP Digital - Diagnóstico de Campo: Soja Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <span class="logo-icone">🌿</span>
+            <span class="logo-texto"><strong>MIP Digital</strong> - Diagnóstico de Campo: Soja Sustentável</span>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="coluna-esquerda">
+            <h1>MIP Digital – Diagnóstico<br>De Campo: Soja Sustentável</h1>
+
+            <div class="card card-principal">
+                <span class="emoji-icone">⚖️</span>
+                <div>
+                    <h3>O que é o MIP?</h3>
+                    <p>Filosofia que une ferramentas para controle de pragas abaixo do nível de dano, priorizando o meio
+                        ambiente.</p>
+                </div>
+            </div>
+
+            <div class="par-cards">
+                <div class="card card-menor">
+                    <span class="emoji-icone">🎯</span>
+                    <div>
+                        <h3>NC</h3>
+                        <p>(Nível de Controle)</p>
+                    </div>
+                </div>
+                <div class="card card-menor">
+                    <span class="emoji-icone">📊</span>
+                    <div>
+                        <h3>NDE</h3>
+                        <p>(Nível de Dano Econômico)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-grafico-novo">
+                <img src="img/grafico.png" alt="Gráfico Conceitual do Nível de Dano Econômico MIP"
+                    class="imagem-grafico-real">
+            </div>
+
+            <div class="card card-embrapa">
+                <div class="logo-embrapa">Embrapa</div>
+                <div class="texto-embrapa">
+                    📚 <strong>Referência Técnica:</strong><br>
+                    Baseado no Manual de Identificação de Pragas e MIP da Embrapa Soja.
+                </div>
+            </div>
+
+            <button class="btn-scroll" id="btn-ancora">Acessar o Simulador →</button>
+        </div>
+
+        <div class="coluna-direita">
+
+            <div class="card-foto-destaque">
+                <img src="img/insetos.png"
+                    alt="Principais pragas da cultura da soja: lagarta da soja e percevejo marrom"
+                    class="imagem-pragas">
+                <div class="gradiente-sombra">
+                    <h2>Sua lavoura está segura? Faça o diagnóstico de monitoramento.</h2>
+                </div>
+            </div>
+
+            <div class="card card-simulador">
+                <div class="formulario">
+                    <label for="seletor-praga">Selecione a Praga:</label>
+                    <select id="seletor-praga">
+                        <option value="percevejo_marrom">Percevejo-marrom (Euschistus heros)</option>
+                        <option value="lagarta_da_soja">Lagarta-da-soja (Anticarsia gemmatalis)</option>
+                    </select>
+
+                    <label for="qtd-praga">Quantidade (média por metro):</label>
+                    <input type="number" id="qtd-praga" min="0" placeholder="0" value="0">
+
+                    <button id="btn-analisar" class="btn-analisar">Analisar Lavoura</button>
+                </div>
+
+                <div id="painel-resultado" class="resultado-caixa escondido">
+                    <h2 id="visual-campo">🚜🔍🌾</h2>
+                    <p id="mensagem">Resultado da análise agronômica.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        Projeto desenvolvido para o Concurso Agrinho 2026. Tema: Agro forte, futuro sustentável 🌍
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

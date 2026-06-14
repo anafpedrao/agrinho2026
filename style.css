@@ -1,0 +1,337 @@
+/* --- VARIÁVEIS DE DESIGN --- */
+:root {
+    --fundo-geral: #EAF0E9;
+    --branco-card: rgba(255, 255, 255, 0.92);
+    --texto-titulo: #1A1A1A;
+    --texto-corpo: #333333;
+    --verde-botoes: #43653F;
+    --verde-hover: #2E462C;
+    --cinza-borda: #E2E8F0;
+}
+
+/* --- ESTRUTURA GLOBAL E IMAGEM DE FUNDO ESMAECIDA --- */
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--texto-corpo);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Fundo estendido usando a imagem da pasta correta com opacidade sutil */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: url('img/pragas.jpg'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12; 
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 12px 40px;
+    border-bottom: 1px solid var(--cinza-borda);
+    font-size: 0.9rem;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icone {
+    font-size: 1.2rem;
+}
+
+.logo-texto {
+    color: #444;
+}
+
+/* --- GRID DE DUAS COLUNAS (LAYOUT WIDESCREEN) --- */
+main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; 
+    gap: 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    align-items: start;
+}
+
+.coluna-esquerda, .coluna-direita {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Títulos e Textos */
+h1 {
+    color: var(--texto-titulo);
+    font-size: 2.3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 25px 0;
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.05rem;
+    color: var(--texto-titulo);
+}
+
+p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--texto-corpo);
+    line-height: 1.4;
+}
+
+/* --- ESTILIZAÇÃO DOS CARDS FLUTUANTES --- */
+.card {
+    background: var(--branco-card);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.card-principal {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.emoji-icone {
+    font-size: 1.6rem;
+    background: #FFF;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Sub-grid de Cards Menores (NC e NDE) */
+.par-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.card-menor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0;
+}
+
+.card-menor p {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Card Temático Embrapa */
+.card-embrapa {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--branco-card);
+}
+
+.logo-embrapa {
+    color: #005CA9;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 1.4rem;
+    border-right: 2px solid #CBD5E1;
+    padding-right: 16px;
+}
+
+.texto-embrapa {
+    font-size: 0.82rem;
+    color: #444;
+}
+
+/* --- ESTILIZAÇÃO DO NOVO GRÁFICO SEGURO --- */
+.container-grafico-novo {
+    width: 100%;
+    max-width: 380px; /* Mantém um tamanho excelente no computador */
+    margin: 20px 0 25px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Sombra suave de fundo */
+    background: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.imagem-grafico-real {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* --- AJUSTE DA FOTO DA COLUNA DIREITA (TAMANHO CONTROLADO PARA COMPUTADOR) --- */
+.card-foto-destaque {
+    position: relative;
+    border-radius: 24px; 
+    overflow: hidden;
+    
+    width: 100%;
+    max-width: 400px; /* Impede a imagem de se espalhar e ficar gigante */
+    height: 400px; /* Altura combinando com a largura máxima */
+    
+    margin: 0 auto 20px auto; /* Centraliza horizontalmente na coluna da direita */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    background-color: #ffffff; /* Fundo branco camufla as bordas da sua imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-percevejo {
+    width: 50%;
+    height: 50%;
+    object-fit: contain; /* Mostra a montagem inteira, sem cortar o clipe ou as bordas */
+    object-position: center;
+}
+
+.gradiente-sombra {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Altura balanceada para não escurecer a lagarta */
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75)); 
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.gradiente-sombra h2 {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* --- FORMULÁRIO DO SIMULADOR --- */
+.card-simulador {
+    padding: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--texto-titulo);
+    margin-top: 6px;
+}
+
+select, input {
+    padding: 12px 14px;
+    border: 1px solid var(--cinza-borda);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background-color: #FFF;
+    outline: none;
+    color: #222;
+}
+
+/* --- BOTÕES --- */
+.btn-scroll {
+    background: var(--branco-card);
+    color: #333;
+    border: 1px solid #CCC;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    font-size: 0.88rem;
+    transition: 0.2s;
+}
+
+.btn-scroll:hover {
+    background: #EEE;
+}
+
+.btn-analisar {
+    background-color: var(--verde-botoes);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: 0.2s;
+}
+
+.btn-analisar:hover {
+    background-color: var(--verde-hover);
+}
+
+/* Caixa de Resposta Interna */
+.resultado-caixa {
+    margin-top: 20px;
+    padding: 15px;
+    background: #F4F8F4;
+    border-left: 4px solid var(--verde-botoes);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Classes utilitárias */
+.escondido {
+    display: none !important;
+}
+
+footer {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    border-top: 1px solid var(--cinza-borda);
+}
+
+/* Responsividade Mobile (Telas de Celular) */
+@media (max-width: 850px) {
+    main {
+        grid-template-columns: 1fr;
+        margin: 20px auto;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .card-foto-destaque {
+        height: 350px; 
+    }
+}
